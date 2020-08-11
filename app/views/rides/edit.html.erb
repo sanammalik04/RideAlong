@@ -1,0 +1,8 @@
+<h1> Edit Ride </h1>
+    <%=form_for @ride do |f|%>
+        <%=f.label "Driver:"%>
+        <%=f.collection_select(:driver_id, Driver.all, :id, :name)%><br>
+        <%=f.label "Passenger:"%>
+        <%=f.collection_select(:passenger_id, Passenger.all, :id, :name)%><br><br>
+        <%= f.submit%>    
+    <%end%>

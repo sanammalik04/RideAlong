@@ -1,0 +1,16 @@
+<h1> Create a New Ride </h1>
+    <%if @ride.errors.any? %>
+        <% @ride.errors.full_messages.each do |message| %>
+            <%= message %><br>
+        <%end%>
+    <%end%>
+
+    <%=form_for @ride do |f|%>
+        <%=f.label "Driver:"%>
+        <%=f.collection_select(:driver_id, Driver.all, :id, :name, :prompt => true)%><br>
+        <%=f.label "Passenger:"%>
+        <%=f.collection_select(:passenger_id, Passenger.all, :id, :name, :prompt => true)%><br><br>
+        <%= f.submit%>    
+
+
+    <%end%>

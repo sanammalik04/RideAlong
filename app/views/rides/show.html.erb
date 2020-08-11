@@ -1,0 +1,6 @@
+<h1> Ride Info </h1>
+Driver: <%= link_to @ride.driver.name, driver_path(@ride.driver) %><br>
+Passenger: <%= link_to @ride.passenger.name, passenger_path(@ride.passenger) %><br><br>
+<% link_to "Edit Ride", edit_ride_path(@ride)%>
+
+

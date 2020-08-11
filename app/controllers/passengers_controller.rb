@@ -1,6 +1,6 @@
 class PassengersController < ApplicationController
 
-    before_action :find_passenger, only: [:show, :edit, :update]
+    before_action :find_passenger, only: [:show, :edit, :update, :destroy]
 
     def index
         @passengers = Passenger.all
@@ -36,6 +36,10 @@ class PassengersController < ApplicationController
         end
     end
 
+    def destroy
+        Passenger.destroy(params[:id])
+        redirect_to passengers_path
+    end
     
 
 
