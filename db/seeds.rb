@@ -13,7 +13,7 @@ Ride.destroy_all
 
 20.times {Passenger.create(name: Faker::Name.name,
         address: Faker::Address.street_address,
-        number_of_rides: Faker::Number.number)}
+        number_of_rides: Faker::Number.between(from: 1, to: 100))}
 
                      
 

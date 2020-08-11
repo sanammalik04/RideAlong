@@ -1,0 +1,12 @@
+<h1><%= @passenger.name %></h1>
+
+<p>
+<b>Address:</b> <%= @passenger.address %><br>
+<b>Number of Rides:</b> <%= @passenger.number_of_rides %><br>
+<b>Drivers:</b><br> <% @passenger.drivers.each do |driver| %>
+                <%= link_to driver.name, driver_path(driver) %><br>
+                <% end %>
+</p>
+
+<%= link_to "Edit Passenger", edit_passenger_path(@passenger) %><br>
+<%= link_to "Passengers", passengers_path %>

@@ -1,0 +1,19 @@
+<h1>Create New Passenger</h1>
+
+<% if @passenger.errors.any? %>
+    <% @passenger.errors.full_messages.each do |message| %>
+        <div><%= message %></div>
+    <% end %>
+<% end %>
+
+<%= form_for @passenger do |f|%>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+    <%= f.label :address %>
+    <%= f.text_field :address %><br>
+    <%= f.label :number_of_rides%>
+    <%= f.number_field :number_of_rides %><br><br>
+    <%= f.label "Drivers:" %><br>
+    <%= f.collection_check_boxes(:driver_ids, Driver.all, :id, :name)%><br><br>
+    <%= f.submit %>
+    <% end %>

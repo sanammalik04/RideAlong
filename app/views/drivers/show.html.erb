@@ -1,0 +1,12 @@
+<h1><%= @driver.name %></h1>
+
+<p>
+<b>Car Make:</b> <%= @driver.car_make %><br>
+<b>Car Model:</b> <%= @driver.car_model %><br>
+<b>Passengers driven:</b><br><% @driver.passengers.each do |passenger|%>
+    <%= link_to passenger.name, passenger_path(passenger)%><br>
+    <% end %>
+
+</p>
+
+<%= link_to "Drivers", drivers_path %>

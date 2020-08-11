@@ -1,0 +1,19 @@
+<h1>Create New Driver</h1>
+
+<% if @driver.errors.any? %>
+    <% @driver.errors.full_messages.each do |message| %>
+        <div><%= message %></div>
+    <% end %>
+<% end %>
+
+<%= form_for @driver do |f|%>
+    <%= f.label :name %>
+    <%= f.text_field :name %><br>
+    <%= f.label :car_make %>
+    <%= f.text_field :car_make %><br>
+    <%= f.label :car_model%>
+    <%= f.text_field :car_model %><br><br>
+    <%= f.label "Passengers:" %><br>
+    <%= f.collection_check_boxes(:passenger_ids, Passenger.all, :id, :name)%><br><br>
+    <%= f.submit %>
+    <% end %>
