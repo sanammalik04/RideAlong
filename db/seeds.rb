@@ -11,16 +11,14 @@ Driver.destroy_all
 Ride.destroy_all
 
 
-20.times {Passenger.create(name: Faker::TvShows::StarTrek.unique.location,
-        distance_from_earth: Faker::Space.unique.distance_measurement,
-        nearest_star: Faker::Space.star)}
+20.times {Passenger.create(name: Faker::Name.name,
+        address: Faker::Address.street_address,
+        number_of_rides: Faker::Number.number)}
 
                      
 
-20.times {Planet.create(name: Faker::TvShows::StarTrek.unique.location,
-        distance_from_earth: Faker::Space.unique.distance_measurement,
-        nearest_star: Faker::Space.star)}
+20.times {Driver.create(name: Faker::Name.name,
+        car_model: Faker::Vehicle.model,
+        car_make: Faker::Vehicle.make)}
 
-20.times {Planet.create(name: Faker::TvShows::StarTrek.unique.location,
-        distance_from_earth: Faker::Space.unique.distance_measurement,
-        nearest_star: Faker::Space.star)}
+20.times {Ride.create(driver_id: Driver.all.sample.id, passenger_id: Passenger.all.sample.id)}
